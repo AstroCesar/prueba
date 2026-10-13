@@ -1,0 +1,37 @@
+Fecha: 2026-10-13
+Método: POST
+URL: https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent
+Estado: 200 OK
+
+Respuesta:
+{
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Roedor gigante y apacible de Sudamérica, el más grande existente.",
+            "thoughtSignature": "EmAKXgFpFH0T2gDyZwZEw2w0V6vGCNZpe+pdcQCQOTBp6XqGr3EeYIj8hP7SNAvVgP4035TW7nOoO4+YzYQnfv2rzxyd2OF3U+5wOxp8UnfbEvZDd+EeoZi0GeYNmSi5TAw="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "index": 0
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 12,
+    "candidatesTokenCount": 16,
+    "totalTokenCount": 28,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 12
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "modelVersion": "gemini-3.5-flash-lite",
+  "responseId": "9r7OaubyL_uc6dkP3b-aqAo"
+}
