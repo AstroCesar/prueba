@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-def obtener_dato_de_prueba(pregunta):
+def armar_peticion(pregunta):
     api_key = os.getenv("API_KEY")
     modelo = os.getenv("MODEL_NAME")
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{modelo}:generateContent"
@@ -14,9 +14,18 @@ def obtener_dato_de_prueba(pregunta):
         ]
     }
     headers = {"x-goog-api-key": api_key}
+    return url, headers, body
+
+def enviar_peticion(url, headers, body):
     respuesta = requests.post(url, headers=headers, json=body)
-    datos = respuesta.json()
+    return respuesta.json()
+
+def extraer_texto(datos):
     return datos["candidates"][0]["content"]["parts"][0]["text"]
 
+def obtener_dato_de_prueba(pregunta):
+    url, headers, body = armar_peticion(pregunta)
+    datos = enviar_peticion(url, headers, body)
+    return extraer_texto(datos)
 
 print(obtener_dato_de_prueba("¿que lleva un completo en chile?, en 15 palabras."))
